@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="t.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <h1 class="app-title">TO DO LIST</h1>
+            <ul class="todo-list js-todo-list"></ul>
+
+
+            <div class="empty-state">
+                <svg class="checklist-icon"><use href="#checklist-icon"></use></svg>
+                <h2 class="empty-state__title">Add your todo tasks here</h2>
+                <p class="empty-state__description">What do you want to get done today?</p>
+            </div>
+
+            <form class="todo-form js-form">
+                <input autofocus type="text" aria-label="Enter a new todo item" placeholder="E.g. Build a web app" class="js-todo-input">
+            </form>
+        </div>
+    </main>
+    <script src="t.js"></script>
+</body>
+
+</html>
