@@ -1,25 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Counter from'./Counter.js';
+import {useState} from 'react'
+import List from './List.js'
+import React from 'react'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-        <Counter />
-        </header>
-          {/* <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        
-        <Counter />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
-      </div>
-    );
+function App() {
+  const [currentItem, setcurrentItem] = useState(null);
+  const [itemList, updateitemList] = useState([]);
+
+
+  const onChangeHandler= e =>{
+    setcurrentItem(e.target.value);
+  };
+
+  const addItemToList =()=>{
+    updateitemList([...itemList,{item:currentItem,key:Date.now}]);
+
+    setcurrentItem("");
   }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <div className="Wrapper"> 
+        <div className="Input-Wrapper">
+          <input 
+          placeholder="Add your task!"
+           value={currentItem} 
+           onChange={onChangeHandler}/>
+          <button onClick={addItemToList}>+</button>
+
+        </div>
+        <List itemList={itemList} updateitemList={updateitemList}/>
+        </div>
+      </header>
+    </div>
+  );
 }
 
 export default App;
